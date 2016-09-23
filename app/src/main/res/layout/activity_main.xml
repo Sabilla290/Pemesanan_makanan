@@ -1,16 +1,221 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="id.sch.smktelkom_mlg.tugas01.xiirpl5035.pemesanan_makanan.MainActivity">
+    tools:context="id.sch.smktelkom_mlg.tugas01.xiirpl5035.pemesanan_makanan.MainActivity"
+    >
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Jl. Danau Maninjau III G2F/10"
+        android:id="@+id/textViewAlamat"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
+
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewAlamat"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="33dp"
+        android:id="@+id/view">
+        <EditText
+            android:hint="Nama"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextNama"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih Menu !"
+        android:id="@+id/textView"
+        android:layout_below="@+id/view"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Makanan"
+        android:id="@+id/textViewMa"
+        android:layout_below="@+id/textView"
+        android:layout_toLeftOf="@+id/textViewAlamat"
+        android:layout_toStartOf="@+id/textViewAlamat"
+        android:layout_gravity="center_horizontal" />
+
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rendang"
+        android:id="@+id/checkBoxRendang"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iga Bakar"
+        android:id="@+id/checkBoxIga"
+        android:layout_below="@+id/checkBoxRendang"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Soup"
+        android:id="@+id/checkBoxSoup"
+        android:layout_below="@+id/checkBoxIga"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nasi"
+        android:id="@+id/checkBoxNasi"
+        android:layout_below="@+id/checkBoxSoup"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kentang"
+        android:id="@+id/checkBoxKentang"
+        android:layout_below="@+id/checkBoxNasi"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:text="Minuman"
+        android:layout_gravity="center_horizontal" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Es teh"
+        android:id="@+id/checkBoxTeh"
+        android:layout_alignTop="@+id/checkBoxRendang"
+        android:layout_alignLeft="@+id/checkBoxJeruk"
+        android:layout_alignStart="@+id/checkBoxJeruk"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Es Jeruk"
+        android:id="@+id/checkBoxJeruk"
+        android:layout_below="@+id/checkBoxTeh"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Susu"
+        android:id="@+id/checkBoxSusu"
+        android:layout_alignTop="@+id/checkBoxSoup"
+        android:layout_alignLeft="@+id/checkBoxTeh"
+        android:layout_alignStart="@+id/checkBoxTeh"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kopi"
+        android:id="@+id/checkBoxKopi"
+        android:layout_below="@+id/checkBoxSusu"
+        android:layout_alignLeft="@+id/checkBoxSusu"
+        android:layout_alignStart="@+id/checkBoxSusu"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Es Dawet"
+        android:id="@+id/checkBoxDawet"
+        android:layout_below="@+id/checkBoxKopi"
+        android:layout_alignLeft="@+id/checkBoxKopi"
+        android:layout_alignStart="@+id/checkBoxKopi"
+        android:checked="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="hanya untuk 1 porsi"
+        android:id="@+id/textView3" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pesan"
+        android:id="@+id/buttonPesan"
+        android:layout_alignBaseline="@+id/textViewHasil"
+        android:layout_alignBottom="@+id/textViewHasil"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="New Text"
+        android:id="@+id/textViewHasil"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/checkBoxDawet"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView" />
+
+</LinearLayout>
+</ScrollView>
