@@ -1,16 +1,20 @@
 package id.sch.smktelkom_mlg.tugas01.xiirpl5035.pemesanan_makanan;
 
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 
 public class MainActivity extends AppCompatActivity {
-
+    RadioGroup rgBonus;
+    //RadioButton rbA,rbP,rbI;
     EditText etNama;
     CheckBox cbR,cbI,cbS,cbN,cbK,    cbT,cbJ,cbSu,cbKo,cbD;
     Button bOk;
@@ -20,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        rgBonus = (RadioGroup) findViewById(R.id.RadioGroupBonus);
+        /*rbA = (RadioButton) findViewById(R.id.radioButtonAir);
+        rbP = (RadioButton) findViewById(R.id.radioButtonPuding);
+        rbI = (RadioButton) findViewById(R.id.radioButtonIce);*/
 
         cbR = (CheckBox) findViewById(R.id.checkBoxRendang);
         cbI = (CheckBox) findViewById(R.id.checkBoxIga);
@@ -45,6 +54,23 @@ public class MainActivity extends AppCompatActivity {
                 doProcess();
             }
         });
+
+        rgBonus.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                                               @Override
+                                               public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                                                   if(i == R.id.radioButtonAir)
+                                                   {
+                                                       findViewById(R.id.tilJA).setVisibility(View.VISIBLE);
+                                                   }
+                                                   else
+                                                   {
+                                                       findViewById(R.id.tilJA).setVisibility(View.GONE);
+                                                   }
+                                               }
+                                           }
+
+
+        );
     }
 
     private void doProcess()
@@ -74,8 +100,42 @@ public class MainActivity extends AppCompatActivity {
                 minuman+="-";
 
 
-            tvHasil.setText("Nama :" + nama + "\n" + makanan +"\n" + minuman );
+            String bonus = null;
 
+            if(rgBonus.getCheckedRadioButtonId()!=-1) {
+                RadioButton rb = (RadioButton)
+                        findViewById(rgBonus.getCheckedRadioButtonId());
+                bonus = rb.getText().toString();
+
+                if (rgBonus.getCheckedRadioButtonId() == R.id.radioButtonAir)
+                {
+                    EditText etJA = (EditText) findViewById(R.id.editTextJA);
+                    bonus += " " + etJA.getText()+ " gelas";
+                }
+
+            }
+
+            /*if(rbA.isChecked())
+            {
+                bonus = rbA.getText().toString();
+
+            }
+            else if (rbP.isChecked())
+            {
+                bonus = rbP.getText().toString();
+            }
+            else if(rbI.isChecked())
+            {
+                bonus = rbI.getText().toString();
+            }*/
+
+            if (bonus==null)
+            {
+                tvHasil.setText("Nama :" + nama + "\n" + makanan +"\n" + minuman +"\nBelum memilih Bonus");
+            }
+            else {
+                tvHasil.setText("Nama :" + nama + "\n" + makanan + "\n" + minuman + "\nBonus :\n" + bonus);
+            }
         }
     }
 
