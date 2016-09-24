@@ -37,6 +37,7 @@
         android:text="Jl. Danau Maninjau III G2F/10"
         android:id="@+id/textViewAlamat"
         android:layout_below="@+id/imageView"
+        android:layout_gravity="center_horizontal"
         android:layout_centerHorizontal="true" />
 
 
@@ -203,23 +204,20 @@
             android:layout_height="wrap_content"
             android:text="Air Putih"
             android:id="@+id/radioButtonAir"
-            android:layout_gravity="center_horizontal"
             android:checked="false" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Puding"
+            android:text="Puding Coklat"
             android:id="@+id/radioButtonPuding"
-            android:layout_gravity="center_horizontal"
             android:checked="false" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ice Cream"
+            android:text="Ice Cream Vanilla"
             android:id="@+id/radioButtonIce"
-            android:layout_gravity="center_horizontal"
             android:checked="false" />
     </RadioGroup>
     <android.support.design.widget.TextInputLayout
@@ -234,9 +232,29 @@
             android:inputType="numberSigned"
             android:id="@+id/editTextJA"/>
     </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pesanan yang Akan?"
+        android:id="@+id/textView5"
+        android:layout_gravity="center_horizontal" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/order"
+        android:id="@+id/spinnerOrder" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerIsi"
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -253,7 +271,8 @@
         android:layout_alignBaseline="@+id/textViewHasil"
         android:layout_alignBottom="@+id/textViewHasil"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_gravity="center_horizontal" />
 
     <TextView
         android:layout_width="wrap_content"

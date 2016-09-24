@@ -4,17 +4,29 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 public class MainActivity extends AppCompatActivity {
     RadioGroup rgBonus;
     //RadioButton rbA,rbP,rbI;
+    Spinner spOrder,spIsi;
+        String[][]arIsi ={{"Meja 1","Meja 2","Meja 3","Meja 4", "Meja 5", "Meja 6","Meja 7", "Meja 8"},
+                            {"Diantar","Bawa Pulang"}};
+        ArrayList<String> listIsi = new ArrayList<>();
+        ArrayAdapter<String> adapter;
+
     EditText etNama;
     CheckBox cbR,cbI,cbS,cbN,cbK,    cbT,cbJ,cbSu,cbKo,cbD;
     Button bOk;
@@ -24,6 +36,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        spOrder = (Spinner) findViewById(R.id.spinnerOrder);
+        spIsi = (Spinner) findViewById(R.id.spinnerIsi);
+
+            adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, listIsi);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spIsi.setAdapter(adapter);
+
+            spOrder.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+                                            {
+                                               @Override
+                                               public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long id) {
+                                                   listIsi.clear();
+                                                   listIsi.addAll(Arrays.asList(arIsi[pos]));
+                                                   adapter.notifyDataSetChanged();
+                                                   spIsi.setSelection(0);
+                                               }
+
+                                               @Override
+                                               public void onNothingSelected(AdapterView<?> adapterView) {
+
+                                               }
+                                           }
+            );
 
         rgBonus = (RadioGroup) findViewById(R.id.RadioGroupBonus);
         /*rbA = (RadioButton) findViewById(R.id.radioButtonAir);
@@ -131,10 +167,12 @@ public class MainActivity extends AppCompatActivity {
 
             if (bonus==null)
             {
-                tvHasil.setText("Nama :" + nama + "\n" + makanan +"\n" + minuman +"\nBelum memilih Bonus");
+                tvHasil.setText("Nama :" + nama + "\n" + makanan +"\n" + minuman +"\nBelum memilih Bonus" +
+                        "\n\nPesanan akan di "+ spOrder.getSelectedItem().toString()+ " dengan " + spIsi.getSelectedItem().toString());
             }
             else {
-                tvHasil.setText("Nama :" + nama + "\n" + makanan + "\n" + minuman + "\nBonus :\n" + bonus);
+                tvHasil.setText("Nama :" + nama + "\n" + makanan + "\n" + minuman + "\nBonus :\n" + bonus +
+                        "\n\nPesanan akan di "+ spOrder.getSelectedItem().toString()+ " dengan " + spIsi.getSelectedItem().toString());
             }
         }
     }
