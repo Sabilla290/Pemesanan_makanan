@@ -12,13 +12,6 @@
         Ketika kita belum mengisi nama maka akan keluar pesan pada edit text, dan jika nama kurang dari 3 kata maka akan muncul pesan.
   4. Aplikasiini untuk customer yang akan memesan makanan.
   
-- Screenshoot Aplikasi
-    >Ini tampilan awal dari aplikasi pemesanan makanan ![Gambar 1](/Gambar 1.png)
-    >Ini tampilan kesalahan Jika kita tidak mengisi nama pada edit text dari aplikasi pemesanan makanan ![Gambar 2](/Gambar 2.png)
-    >Ini tampilan kesalahan jika nama kurang dari 3 kata dari aplikasi pemesanan makanan ![Gambar 3](/Gambar 3.png)
-    >Ini tampilan jika kita hanya mengisi edit text saja dari aplikasi pemesanan makanan ![Gambar 4](/Gambar 4.png)
-    >Ini tampilan jika terisi lengkap dari aplikai pemesanan makanan ![Gambar 5](/Gambar 5.png)
-
 - Link Aplikasi
     >[Apk] (https://drive.google.com/open?id=0B5gvzCcZ_XjBckZqcGRjNmR5T28)
     
